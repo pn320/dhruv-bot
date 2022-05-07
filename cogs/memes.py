@@ -130,7 +130,6 @@ class Memes(commands.Cog):
 
     @commands.Cog.listener('on_message')
     async def send_rahul_meme(self, message: Message):
-        print(f'{message.author.display_name}')
         if message.author == self.bot.user:
             return
 
