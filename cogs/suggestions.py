@@ -8,8 +8,8 @@ from dotenv import load_dotenv
 from github import Github
 
 load_dotenv()
-GITHUB_TOKEN = os.environ['GITHUB_TOKEN']
-GITHUB_USERNAME = os.environ['GITHUB_USERNAME']
+GITHUB_TOKEN = os.environ.get('GITHUB_TOKEN', None)
+GITHUB_USERNAME = os.environ.get('GITHUB_USERNAME', None)
 PATH_TO_REPO = f'{GITHUB_USERNAME}/dhruv-bot'
 
 

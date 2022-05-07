@@ -20,13 +20,14 @@ class Memes(commands.Cog):
     def __init__(self, bot: commands.Bot) -> None:
         self.bot = bot
         self.dhruv_meme_threshold = 0.69
-        print("Loaded memes cog")
         
+
     @commands.command(name='ping')
     async def ping(self, ctx):
         """Pings, I guess"""
         await ctx.send("epic fail")
         
+
     @commands.command(name='8ball')
     async def _8ball(self, ctx, *, question):
         responses = [
@@ -36,6 +37,7 @@ class Memes(commands.Cog):
             'you think you\'re a funny fellow?' 
         ]
         await ctx.send(f'Question: {question} \nAnswer: {random.choice(responses)}')
+
 
     @commands.Cog.listener(name='on_message')
     async def send_dhruv_meme(self, message: Message):
@@ -61,7 +63,7 @@ class Memes(commands.Cog):
         if message.author.id == self.bot.user.id:
             return
 
-        words = ['fuck', 'tf', 'wtf']
+        words = ['fuck', 'tf', 'wtf', 'fucked', 'fuckery', 'fucking', 'bruh', 'fucks']
         content = message.content.lower().split()
         if any(x in words for x in content):
             await Memes.probably_message(message.channel, f"nah <@{message.author.id}>, fuck you.", "fuck you message", 0.5)
@@ -136,6 +138,7 @@ class Memes(commands.Cog):
         if message.author.display_name == 'Rahul':
             if random.random() >= 0.80:
                 await message.channel.send(f'rahul you can come out now.')
+
 
 # Register the cog for our bot
 def setup(bot: commands.Bot):
