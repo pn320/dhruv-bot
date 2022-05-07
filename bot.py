@@ -36,7 +36,7 @@ async def on_message(message: Message):
     # meme message for dhruv    
     if message.author.display_name == 'Dhruv':
         if random.random() >= 0.80:
-            await message.channel.send(f'dhruv you can come out now, it\'s safe')
+            await message.channel.send(f'dhruv you can come out now.')
     
 
 client.run(TOKEN)
