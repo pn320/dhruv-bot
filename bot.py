@@ -1,12 +1,9 @@
 # bot.py
 import os
-import random
 
-from dotenv import load_dotenv
-from discord import Guild, Intents, Message, utils
+from discord import Guild, Intents, utils
 from discord.ext import commands
-
-from cogs import memes
+from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.environ['TOKEN']
@@ -33,12 +30,9 @@ async def on_member_join(member) -> None:
         f'Hey there, {member.name}! Welcome to the DRP server!'
     )
 
-
-
-
 # Below cogs represents our folder our cogs are in. Following is the file name. So 'meme.py' in cogs, would be cogs.meme
 # Think of it like a dot path import
-initial_extensions = ['cogs.memes']
+initial_extensions = ['cogs.memes', 'cogs.suggestions']
 
 if __name__ == '__main__':
     for extension in initial_extensions:
