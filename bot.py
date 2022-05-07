@@ -2,16 +2,14 @@
 import os
 
 from discord import Client, Guild, Intents, utils, Message
-from dotenv import load_dotenv
 
-load_dotenv()
+
 TOKEN = os.environ['TOKEN']
 GUILD = os.environ['GUILD']
+DHRUV_ID = os.environ['DHRUV_ID']
 
 intents = Intents.all()
 client = Client(intents=intents)
-
-DHRUV_ID = 396889517916946432
 
 @client.event
 async def on_ready() -> None:
