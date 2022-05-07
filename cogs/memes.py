@@ -21,6 +21,17 @@ class Memes(commands.Cog):
             if random.random() >= 0.80:
                 await message.channel.send(f'dhruv you can come out now.')
 
+    @commands.Cog.listener('on_message')
+    async def send_rahul_meme(message: Message):
+        print(f'{message.author.display_name}')
+        if message.author == bot.user:
+            return
+
+        # meme message for dhruv
+        if message.author.display_name == 'Rahul':
+            if random.random() >= 0.80:
+                await message.channel.send(f'rahul you can come out now.')
+
 # Register the cog for our bot
 def setup(bot: commands.Bot):
     bot.add_cog(Memes(bot))
