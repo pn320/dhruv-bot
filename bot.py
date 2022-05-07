@@ -1,6 +1,5 @@
 # bot.py
 import os
-import random
 
 from dotenv import load_dotenv
 from discord import Guild, Intents, Message, utils
