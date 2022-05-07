@@ -4,5 +4,5 @@ Just a bot to play around with the discord API and hopefully make our life easie
 
 ### TODO's:
 - [ ] Finish setting up basic functionality.
-- [ ] Set up jokes to annoy Dhruv.
+- [X] Set up jokes to annoy Dhruv.
 - [ ] Figure out how to make our life easier.
