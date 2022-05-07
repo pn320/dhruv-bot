@@ -2,8 +2,10 @@
 import os
 import random
 
+from dotenv import load_dotenv
 from discord import Client, Guild, Intents, Message, utils
 
+load_dotenv()
 TOKEN = os.environ['TOKEN']
 GUILD = os.environ['GUILD']
 
@@ -33,10 +35,10 @@ async def on_message(message: Message):
     if message.author == client.user:
         return
 
-    # meme message for dhruv    
+    # meme message for dhruv
     if message.author.display_name == 'Dhruv':
         if random.random() >= 0.80:
             await message.channel.send(f'dhruv you can come out now.')
-    
+
 
 client.run(TOKEN)
