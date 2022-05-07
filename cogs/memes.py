@@ -1,6 +1,8 @@
 import random
-from discord.ext import commands
+
 from discord import Message
+from discord.ext import commands
+
 
 class Memes(commands.Cog):
     def __init__(self, bot: commands.Bot) -> None:
@@ -23,9 +25,9 @@ class Memes(commands.Cog):
                 await message.channel.send(f'dhruv you can come out now.')
 
     @commands.Cog.listener('on_message')
-    async def send_rahul_meme(message: Message):
+    async def send_rahul_meme(self, message: Message):
         print(f'{message.author.display_name}')
-        if message.author == bot.user:
+        if message.author == self.bot.user:
             return
 
         # meme message for dhruv
