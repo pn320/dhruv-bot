@@ -33,16 +33,7 @@ async def on_member_join(member) -> None:
         f'Hey there, {member.name}! Welcome to the DRP server!'
     )
 
-@bot.listen('on_message')
-async def send_dhruv_meme(message: Message):
-    print(f'{message.author.display_name}')
-    if message.author == bot.user:
-        return
 
-    # meme message for dhruv
-    if message.author.display_name == 'Dhruv':
-        if random.random() >= 0.80:
-            await message.channel.send(f'dhruv you can come out now.')
 
 
 # Below cogs represents our folder our cogs are in. Following is the file name. So 'meme.py' in cogs, would be cogs.meme
