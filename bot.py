@@ -1,12 +1,12 @@
 # bot.py
 import os
+import random
 
-from discord import Client, Guild, Intents, utils, Message
-
+from discord import Client, Guild, Intents, Message, utils
 
 TOKEN = os.environ['TOKEN']
 GUILD = os.environ['GUILD']
-DHRUV_ID = os.environ['DHRUV_ID']
+
 
 intents = Intents.all()
 client = Client(intents=intents)
@@ -29,14 +29,14 @@ async def on_member_join(member) -> None:
 
 @client.event
 async def on_message(message: Message):
+    print(f'{message.author.display_name}')
     if message.author == client.user:
         return
 
-    print(f'the author is {message.author}')
-
-    if message.author.id == DHRUV_ID:
-        await message.channel.send(f'dhruv you\'re super gay.')
-    else:
-        await message.channel.send(f'you\'re not dhruv.')
+    # meme message for dhruv    
+    if message.author.display_name == 'Dhruv':
+        if random.random() >= 0.80:
+            await message.channel.send(f'dhruv you can come out now, it\'s safe')
+    
 
 client.run(TOKEN)
