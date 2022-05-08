@@ -2,15 +2,15 @@
 """module to add suggestions to github repository based on messages send to #bot-suggestions channel"""
 import os
 
-from discord import  Embed
+from discord import Embed
 from discord.ext import commands
 from dotenv import load_dotenv
 from github import Github
 
 load_dotenv()
 GITHUB_TOKEN = os.environ.get('GITHUB_TOKEN', None)
-GITHUB_USERNAME = os.environ.get('GITHUB_USERNAME', None)
-PATH_TO_REPO = f'{GITHUB_USERNAME}/dhruv-bot'
+OWNER_USERNAME = os.environ.get('OWNER_USERNAME', None)
+PATH_TO_REPO = f'{OWNER_USERNAME}/dhruv-bot'
 
 
 class SuggestionsCog(commands.Cog):
@@ -19,10 +19,10 @@ class SuggestionsCog(commands.Cog):
     
     @commands.command(name='suggestion')
     async def create_feature_req(self, ctx, *, arg):
-        """retrieves feature request and passes it helper function"""
-        if ctx.channel.name != 'bot-suggestions':
+        """retrieves feature request and creates github enhancement issue"""
+        if ctx.channel.name != 'suggestions':
             return
-        await ctx.send(f'Creating feature request for {arg} in repository')
+        await ctx.send(f'Creating feature request in repository!')
         
         # this logic really needs to be separated into another function
         git_session = Github(GITHUB_TOKEN)
@@ -38,17 +38,16 @@ class SuggestionsCog(commands.Cog):
 
         # also needs to be separated
         embed=Embed(
-            title=f'Request #{issue.number}', 
+            title=f'Request by {ctx.author.display_name}', 
             type='rich',
             description=arg, 
             color=0x00c09a
         )
         embed.set_author(
-            name= 'DRP Bot Feature Request',
-            url=f'https://github.com/{GITHUB_USERNAME}/dhruv-bot/issues/{issue.number}'  # type: ignore
+            name= f'DRP Bot Feature Request #{issue.number}',
+            url=f'https://github.com/{OWNER_USERNAME}/dhruv-bot/issues/{issue.number}'  # type: ignore
         )
         embed.set_footer(text='Add to the issue by clicking the link in the title!')  # type: ignore
-        print(embed)
         await ctx.send(embed=embed) 
         
 
