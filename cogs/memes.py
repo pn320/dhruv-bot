@@ -35,7 +35,7 @@ class Memes(commands.Cog):
             'nahhh', 'obviously lol', 'kinda', 'you think? helll naww', 
             'maybe a little bit', 'helll no', 'yeah I guess', 'awhhhh yeah',
             'no shit, sherlock', 'Your PintOS group says yes', 'I missed the part where I\'m obliged to answer',
-            'you think you\'re a funny fellow?' 
+            'you think you\'re a funny fellow?', r"Don't ever, for any reason, do anything to anyone for any reason ever, no matter what, no matter where, or who, or who you are with, or where you are going, or where you've been... ever, for any reason whatsoever..." 
         ]
         await ctx.send(f'Question: {question} \nAnswer: {random.choice(responses)}')
 
@@ -52,7 +52,7 @@ class Memes(commands.Cog):
         if message.author.id == self.bot.user.id:
             return
         
-        crab_words = ['rust', 'rusty', 'rustling', 'rustacean']
+        crab_words = ['rust', 'rusty', 'rustling', 'rustacean', 'ferris', 'borrow checker', 'refcell', 'arena', 'speed', 'safety', 'beauty']
         content = message.content.lower().split()
         if any(x in crab_words for x in content):
             await message.add_reaction("🦀")
@@ -64,7 +64,7 @@ class Memes(commands.Cog):
         if message.author.id == self.bot.user.id:
             return
 
-        words = ['fuck', 'tf', 'wtf', 'fucked', 'fuckery', 'fucking', 'bruh', 'fucks']
+        words = ['fuck', 'tf', 'wtf', 'fucked', 'fuckery', 'fucking', 'bruh', 'fucks', 'arsehole', 'dickhead']
         content = message.content.lower().split()
         if any(x in words for x in content):
             await Memes.probably_message(message.channel, f"nah <@{message.author.id}>, fuck you.", "fuck you message", 0.5)
