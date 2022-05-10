@@ -14,6 +14,7 @@ DHRUV_DISPLAY_NAME = dhruv_display_name()
 DHRUV_MEMES = [
     f"I'm {DHRUV_DISPLAY_NAME} and I love Python.",
     f"{DHRUV_DISPLAY_NAME} you can come out now.",
+    f"{DHRUV_DISPLAY_NAME} does this tweet (https://twitter.com/reduct_rs/status/1519844948266340355) apply to you"
 ]
 
 class Memes(commands.Cog):
